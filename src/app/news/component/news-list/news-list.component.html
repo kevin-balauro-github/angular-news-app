@@ -1,0 +1,36 @@
+<app-news-categories></app-news-categories>
+<hr />
+<div class="sort-container">
+  <select [(ngModel)]="sortValue">
+    <option
+      *ngFor="let s of onGetSortOptions()"
+      [value]="s.value"
+      [routerLink]="['.']"
+      [queryParams]="{ sort: s.value }"
+    >
+      {{ s.name }}
+    </option>
+  </select>
+</div>
+
+<section class="news-grid-container" *ngIf="newsList.length > 0; else loading">
+  <div *ngFor="let n of newsList">
+    <div class="news-container">
+      <div class="news-image-container">
+        <img class="news-image" [src]="n.imgUrl" />
+      </div>
+      <div class="news-content">
+        <h4 class="news-title">{{ n.title }}</h4>
+        <p class="news-description">{{ n.description | slice : 0 : 120 }}...</p>
+
+        <a class="news-url" [href]="n.url" target="_blank">Read more...</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>Loading Getting Latest News...</p>
+  </div>
+</ng-template>

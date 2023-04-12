@@ -1,0 +1,22 @@
+<header class="header-container">
+  <div class="title-container">
+    <h1 class="title-text">
+      <a [routerLink]="['/news', 'home']" class="title-link">News App</a>
+    </h1>
+  </div>
+  <div class="search-container">
+    <input
+      class="search-input"
+      type="text"
+      (keyup.enter)="onGetKeyword(keyword.value); keyword.value = ''"
+      placeholder="Enter a keyword: "
+      #keyword
+    />
+    <button
+      class="search-button"
+      (click)="onGetKeyword(keyword.value); keyword.value = ''"
+    >
+      <span class="search-button-text">Search</span>
+    </button>
+  </div>
+</header>

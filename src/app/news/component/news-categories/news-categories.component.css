@@ -1,0 +1,43 @@
+.category-container {
+  width: 90%;
+  margin: 1em auto;
+}
+
+.category-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.category-link {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+  color: #242424;
+}
+
+li a:hover {
+  color: crimson;
+}
+
+li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: crimson;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
